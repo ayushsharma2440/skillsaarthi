@@ -139,6 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const approvedEl = document.querySelector('[data-applicants-approved]');
   const pendingEl = document.querySelector('[data-applicants-pending]');
   const deniedEl = document.querySelector('[data-applicants-denied]');
+  const overviewBtn = document.querySelector('[data-profile-edit-overview]');
+  const overviewEmpty = document.querySelector('[data-profile-overview-empty]');
+  const overviewText = document.querySelector('[data-profile-overview-text]');
 
   if (showApplicantsBtn && applicantsList) {
     const applicantItems = applicantsList.querySelectorAll('li');
@@ -234,5 +237,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     recalcApplicantSummary();
+  }
+
+  // Profile Overview: add/edit simple experience text (frontend only)
+  if (overviewBtn && overviewText && overviewEmpty) {
+    overviewBtn.addEventListener('click', () => {
+      const current = overviewText.textContent ? overviewText.textContent.trim() : '';
+      const input = window.prompt(
+        'Describe your experience, skills, and what kind of work you want help with:',
+        current
+      );
+
+      if (input && input.trim().length > 0) {
+        overviewEmpty.classList.add('hidden');
+        overviewText.textContent = input.trim();
+        overviewText.classList.remove('hidden');
+        overviewBtn.textContent = 'Edit experience';
+      }
+    });
   }
 });

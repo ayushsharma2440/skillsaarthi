@@ -290,6 +290,58 @@ a:hover {
   color: #e5e7eb;
 }
 
+.profile-grid {
+  margin-top: 1.5rem;
+}
+
+.profile-card {
+  padding: 1rem 1.2rem;
+}
+
+.profile-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.profile-header-main {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.profile-name {
+  margin: 0 0 0.15rem 0;
+  font-size: 1.1rem;
+}
+
+.profile-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.btn-small {
+  padding: 0.25rem 0.7rem;
+  font-size: 0.78rem;
+}
+
+.profile-overview-text {
+  margin-top: 0.35rem;
+}
+
+.profile-quick-links .list-items li {
+  align-items: center;
+}
+
+.profile-communication p,
+.profile-reviews p {
+  margin: 0.2rem 0;
+}
+
 /* Profile applicants approve/deny buttons */
 .applicants-list [data-approve] {
   background: #16a34a;

@@ -109,5 +109,85 @@
         </ul>
       </section>
     </div>
+
+    <div class="dashboard-grid profile-grid">
+      <section class="card profile-card">
+        <div class="profile-header-row">
+          <div class="profile-header-main">
+            <div class="avatar-circle">
+              <span>
+                <% if (currentUser && currentUser.name) { %>
+                  <%= currentUser.name.charAt(0).toUpperCase() %>
+                <% } else { %>
+                  S
+                <% } %>
+              </span>
+            </div>
+            <div>
+              <h2 class="profile-name"><%= (currentUser && currentUser.name) || 'Your Skillसारथी name' %></h2>
+              <p class="muted">@your_handle &middot; India</p>
+              <p class="muted">Joined in 2025</p>
+            </div>
+          </div>
+          <button type="button" class="btn btn-ghost btn-small" data-profile-edit-basic>Edit</button>
+        </div>
+      </section>
+
+      <section class="card small-card profile-quick-links">
+        <h2>Quick links</h2>
+        <ul class="list-items list-compact">
+          <li>
+            <span>Briefs</span>
+            <button type="button" class="btn btn-ghost btn-small">View</button>
+          </li>
+          <li>
+            <span>Orders</span>
+            <button type="button" class="btn btn-ghost btn-small">View</button>
+          </li>
+          <li>
+            <span>Lists</span>
+            <button type="button" class="btn btn-ghost btn-small">View</button>
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="dashboard-grid profile-grid">
+      <section class="card small-card profile-overview">
+        <div class="profile-section-header">
+          <h2>Overview</h2>
+          <button
+            type="button"
+            class="btn btn-ghost btn-small"
+            data-profile-edit-overview
+          >
+            Add experience
+          </button>
+        </div>
+        <p class="muted" data-profile-overview-empty>
+          Share details about yourself, your skills, and what kind of work you want help with.
+        </p>
+        <p class="profile-overview-text hidden" data-profile-overview-text></p>
+      </section>
+
+      <section class="card small-card profile-communication">
+        <div class="profile-section-header">
+          <h2>Communication preferences</h2>
+          <button type="button" class="btn btn-ghost btn-small">Edit</button>
+        </div>
+        <p class="muted">Speaks</p>
+        <p><strong>English</strong> (Professional)</p>
+        <p><strong>Hindi</strong> (Native)</p>
+        <p class="muted">Preferred hours</p>
+        <p>Add preferred hours</p>
+      </section>
+    </div>
+
+    <section class="card small-card profile-reviews">
+      <h2>Reviews from Saarthis</h2>
+      <p class="muted">
+        Here you will see feedback from Saarthis you have worked with once this profile has activity.
+      </p>
+    </section>
   </div>
 </section>
