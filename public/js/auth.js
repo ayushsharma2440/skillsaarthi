@@ -142,6 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const overviewBtn = document.querySelector('[data-profile-edit-overview]');
   const overviewEmpty = document.querySelector('[data-profile-overview-empty]');
   const overviewText = document.querySelector('[data-profile-overview-text]');
+  const linkedinBtn = document.querySelector('[data-profile-connect-linkedin]');
+  const linkedinStatus = document.querySelector('[data-profile-linkedin-status]');
 
   if (showApplicantsBtn && applicantsList) {
     const applicantItems = applicantsList.querySelectorAll('li');
@@ -254,6 +256,27 @@ document.addEventListener('DOMContentLoaded', () => {
         overviewText.classList.remove('hidden');
         overviewBtn.textContent = 'Edit experience';
       }
+    });
+  }
+
+  // Profile LinkedIn connect (frontend-only simulation)
+  if (linkedinBtn && linkedinStatus) {
+    linkedinBtn.addEventListener('click', () => {
+      const alreadyConnected = linkedinBtn.dataset.connected === 'true';
+
+      if (alreadyConnected) {
+        showInfo('Your profile is already marked as connected to LinkedIn in this demo.');
+        return;
+      }
+
+      showInfo(
+        'In a full app, this would open LinkedIn and ask for permission to connect your profile. For this prototype, we will just mark it as connected.'
+      );
+
+      linkedinBtn.dataset.connected = 'true';
+      linkedinBtn.textContent = 'LinkedIn connected';
+      linkedinBtn.classList.add('btn-secondary');
+      linkedinStatus.textContent = 'Connected via LinkedIn (demo)';
     });
   }
 });
