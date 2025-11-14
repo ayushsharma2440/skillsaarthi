@@ -1,0 +1,103 @@
+<section class="section section-light dashboard-section">
+  <div class="container">
+    <header class="section-header-flex">
+      <div>
+        <h1>Your SkillSaarthi dashboard</h1>
+        <p>Switch between client and Saarthi views, track your tokens, and manage services.</p>
+      </div>
+      <div class="role-toggle">
+        <button class="btn btn-toggle active" data-role-toggle="client">Client view</button>
+        <button class="btn btn-toggle" data-role-toggle="saarthi">Saarthi view</button>
+      </div>
+    </header>
+
+    <div class="dashboard-summary">
+      <div class="summary-card">
+        <p class="label">Available tokens</p>
+        <p class="value">
+          <span class="token-icon">ST</span>
+          <%= walletBalance %>
+        </p>
+      </div>
+      <div class="summary-card">
+        <p class="label">Tokens earned</p>
+        <p class="value">
+          <span class="token-icon">ST</span>
+          <%= tokensEarned %>
+        </p>
+      </div>
+      <div class="summary-card">
+        <p class="label">Tokens spent</p>
+        <p class="value">
+          <span class="token-icon">ST</span>
+          <%= tokensSpent %>
+        </p>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <section class="card dashboard-column" data-role-section="client">
+        <h2>As a client</h2>
+        <p class="muted">Prototype snapshot of how your client activity can look.</p>
+        <ul class="list-items">
+          <li>
+            <strong>Logo redesign for college club</strong>
+            <span class="tag tag-status">In progress</span>
+            <span class="tokens">
+              <span class="token-icon">ST</span> 30
+            </span>
+          </li>
+          <li>
+            <strong>Resume review and mock interview</strong>
+            <span class="tag tag-status tag-success">Completed</span>
+            <span class="tokens">
+              <span class="token-icon">ST</span> 45
+            </span>
+          </li>
+        </ul>
+        <a href="/requests/new" class="btn btn-secondary btn-full">Post a new request</a>
+      </section>
+
+      <section class="card dashboard-column" data-role-section="saarthi">
+        <h2>As a Saarthi (freelancer)</h2>
+        <p class="muted">Shows how you earn Saarthi Tokens by helping others.</p>
+        <ul class="list-items">
+          <li>
+            <strong>Build a single-page portfolio</strong>
+            <span class="tag tag-status">Due in 2 days</span>
+            <span class="tokens">
+              <span class="token-icon">ST</span> 60
+            </span>
+          </li>
+          <li>
+            <strong>One hour DSA tutoring session</strong>
+            <span class="tag tag-status tag-success">Completed</span>
+            <span class="tokens">
+              <span class="token-icon">ST</span> 20
+            </span>
+          </li>
+        </ul>
+        <a href="/services/new" class="btn btn-secondary btn-full">Publish a new service</a>
+      </section>
+
+      <section class="card dashboard-column">
+        <h2>Token wallet activity</h2>
+        <p class="muted">Recent prototype transactions (static for demo).</p>
+        <ul class="list-items list-compact">
+          <li>
+            <span>+60 ST &middot; Portfolio website</span>
+            <span class="muted">Earned</span>
+          </li>
+          <li>
+            <span>-30 ST &middot; Logo redesign</span>
+            <span class="muted">Spent</span>
+          </li>
+          <li>
+            <span>+20 ST &middot; DSA tutoring</span>
+            <span class="muted">Earned</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</section>

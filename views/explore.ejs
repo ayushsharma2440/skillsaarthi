@@ -1,0 +1,147 @@
+<section class="section section-light">
+  <div class="container">
+    <header class="section-header-flex">
+      <div>
+        <h1>Explore Saarthi skills</h1>
+        <p>Browse services you can request using Saarthi Tokens or opportunities to earn more.</p>
+      </div>
+      <div class="toggle-group">
+        <button class="btn btn-toggle active" data-explore-toggle="services">Services to hire</button>
+        <button class="btn btn-toggle" data-explore-toggle="requests">Requests to fulfil</button>
+      </div>
+    </header>
+
+    <div class="explore-layout">
+      <aside class="filters">
+        <h2>Filters</h2>
+        <label class="filter-field">
+          <span>Category</span>
+          <select>
+            <option>All categories</option>
+            <% categories.forEach(function (cat) { %>
+              <option><%= cat %></option>
+            <% }) %>
+          </select>
+        </label>
+        <label class="filter-field">
+          <span>Skill tier</span>
+          <select>
+            <option>Any</option>
+            <option>Basic</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+        </label>
+        <label class="filter-field">
+          <span>Token range</span>
+          <select>
+            <option>Any</option>
+            <option>0 - 30 ST</option>
+            <option>30 - 60 ST</option>
+            <option>60+ ST</option>
+          </select>
+        </label>
+        <label class="filter-field">
+          <span>Delivery time</span>
+          <select>
+            <option>Any</option>
+            <option>Same day</option>
+            <option>1 - 3 days</option>
+            <option>3+ days</option>
+          </select>
+        </label>
+      </aside>
+
+      <section class="results">
+        <div class="results-top-bar">
+          <div class="search-inline">
+            <input type="text" placeholder="Search services" />
+            <button class="btn btn-icon" aria-label="Search">&#128269;</button>
+          </div>
+          <div class="sort">
+            <label>Sort by</label>
+            <select>
+              <option>Relevance</option>
+              <option>Token price</option>
+              <option>Rating</option>
+              <option>Newest</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="explore-results" data-explore-section="services">
+          <div class="cards-grid cards-grid-3">
+            <% gigs.forEach(function (gig) { %>
+              <article class="card card-gig">
+                <div class="card-gig-header">
+                  <h3><a href="/gig/<%= gig.id %>"><%= gig.title %></a></h3>
+                  <p class="gig-meta">
+                    <%= gig.category %> &middot;
+                    <span class="tier"><%= gig.tier %></span>
+                  </p>
+                </div>
+                <div class="card-gig-body">
+                  <p class="seller">by <strong><%= gig.seller %></strong></p>
+                  <p class="rating">
+                    <span class="star">&#9733;</span>
+                    <strong><%= gig.rating.toFixed(1) %></strong>
+                    <span class="reviews">(<%= gig.reviews %>)</span>
+                  </p>
+                </div>
+                <div class="card-gig-footer">
+                  <div class="tokens">
+                    <span class="token-icon">ST</span>
+                    <span class="token-value"><%= gig.tokens %></span>
+                  </div>
+                  <div class="eta"><%= gig.eta %></div>
+                  <a href="/gig/<%= gig.id %>" class="btn btn-secondary">View details</a>
+                </div>
+              </article>
+            <% }) %>
+          </div>
+        </div>
+
+        <div class="explore-results hidden" data-explore-section="requests">
+          <div class="cards-grid cards-grid-3">
+            <article class="card card-gig">
+              <div class="card-gig-header">
+                <h3>Need help setting up a portfolio website</h3>
+                <p class="gig-meta">Programming &amp; Tech &middot; Intermediate</p>
+              </div>
+              <div class="card-gig-body">
+                <p class="seller">posted by <strong>Student from CSE</strong></p>
+                <p class="rating muted">Budget: <span class="token-icon">ST</span> 40 &middot; 3-4 days</p>
+              </div>
+              <div class="card-gig-footer">
+                <div class="tokens">
+                  <span class="token-icon">ST</span>
+                  <span class="token-value">40</span>
+                </div>
+                <div class="eta">3-4 days</div>
+                <button class="btn btn-secondary">Offer to help</button>
+              </div>
+            </article>
+            <article class="card card-gig">
+              <div class="card-gig-header">
+                <h3>Logo design for college fest</h3>
+                <p class="gig-meta">Design &amp; Creative &middot; Basic</p>
+              </div>
+              <div class="card-gig-body">
+                <p class="seller">posted by <strong>Fest committee</strong></p>
+                <p class="rating muted">Budget: <span class="token-icon">ST</span> 25 &middot; 2 days</p>
+              </div>
+              <div class="card-gig-footer">
+                <div class="tokens">
+                  <span class="token-icon">ST</span>
+                  <span class="token-value">25</span>
+                </div>
+                <div class="eta">2 days</div>
+                <button class="btn btn-secondary">Offer to help</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<section class="section section-light">
+  <div class="container auth-container">
+    <div class="card auth-card">
+      <h1>Log in to SkillSaarthi</h1>
+      <p class="muted">Use your skills and tokens across the platform.</p>
+
+      <% if (error) { %>
+        <div class="auth-error"><%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/login" class="auth-form">
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password" required />
+        </label>
+        <button class="btn btn-primary btn-full" type="submit">Log in</button>
+      </form>
+
+      <p class="auth-switch">
+        New here? <a href="/register">Create a SkillSaarthi account</a>
+      </p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,101 @@
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <h1>Your skills are your currency.</h1>
+      <p>Earn Saarthi Tokens by helping others. Spend them when you need support — no cash, just skills.</p>
+
+      <div class="hero-search">
+        <div class="search-bar">
+          <input type="text" placeholder="Search for design, coding, language lessons..." />
+          <select>
+            <option>All categories</option>
+            <% categories.forEach(function (cat) { %>
+              <option><%= cat %></option>
+            <% }) %>
+          </select>
+          <button class="btn btn-icon" aria-label="Search">
+            &#128269;
+          </button>
+        </div>
+        <div class="search-quick-links">
+          <span>Try:</span>
+          <a href="/explore" class="chip">Web development</a>
+          <a href="/explore" class="chip">Logo design</a>
+          <a href="/explore" class="chip">Career guidance</a>
+          <a href="/explore" class="chip">Video editing</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-aside">
+      <div class="token-panel">
+        <p class="token-label">Sample Wallet</p>
+        <p class="token-balance"><span class="token-icon">ST</span> <%= walletBalance %></p>
+        <p class="token-sub">Earn by helping. Spend when you need help.</p>
+        <a href="/dashboard" class="btn btn-secondary btn-full">View dashboard</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-light">
+  <div class="container">
+    <h2>Popular ways to use SkillSaarthi</h2>
+    <div class="cards-grid cards-grid-4">
+      <article class="card card-service-path">
+        <h3>Launch a portfolio website</h3>
+        <p>Work with Saarthis for design, content, and deployment using tokens only.</p>
+      </article>
+      <article class="card card-service-path">
+        <h3>Prepare for job interviews</h3>
+        <p>Practice with mock interviews, resume reviews, and LinkedIn polishing.</p>
+      </article>
+      <article class="card card-service-path">
+        <h3>Grow your social media</h3>
+        <p>Get strategy, content plans, and post designs from marketing Saarthis.</p>
+      </article>
+      <article class="card card-service-path">
+        <h3>Get academic help</h3>
+        <p>Find tutors for math, coding, or labs and pay only with Saarthi Tokens.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how-it-works" class="section">
+  <div class="container">
+    <h2>How the token system works</h2>
+    <div class="icon-steps">
+      <div class="step">
+        <h3>1. Offer your skills</h3>
+        <p>Publish services or respond to requests in areas where you are confident.</p>
+      </div>
+      <div class="step">
+        <h3>2. Earn Saarthi Tokens</h3>
+        <p>Get paid in tokens instead of money when you complete work.</p>
+      </div>
+      <div class="step">
+        <h3>3. Spend when you need help</h3>
+        <p>Use tokens to hire others for design, tech help, tutoring, and more.</p>
+      </div>
+      <div class="step">
+        <h3>4. Fair & transparent value</h3>
+        <p>Token price is based on effort, skill tier, and ratings for balanced exchanges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="become-saarthi" class="section section-dark">
+  <div class="container become-saarthi">
+    <div>
+      <h2>Become a Saarthi</h2>
+      <p>Turn spare skills into tokens you can spend later on learning, projects, and support.</p>
+      <ul class="features-list">
+        <li><strong>No platform fees:</strong> keep what you earn in tokens.</li>
+        <li><strong>Flexible pricing:</strong> set your own token rates with guidance.</li>
+        <li><strong>Proof of skills:</strong> build a reputation with ratings and completed work.</li>
+      </ul>
+      <a href="/dashboard" class="btn btn-primary">Go to dashboard</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+<section class="section section-light gig-section">
+  <div class="container gig-layout">
+    <div class="gig-main">
+      <h1><%= gig.title %></h1>
+      <p class="gig-category">
+        <%= gig.category %> &middot; <span class="tier"><%= gig.tier %></span>
+      </p>
+
+      <div class="seller-info">
+        <div class="avatar-circle"><span><%= gig.seller.charAt(0) %></span></div>
+        <div>
+          <p class="seller-name"><%= gig.seller %></p>
+          <p class="rating">
+            <span class="star">&#9733;</span>
+            <strong><%= gig.rating.toFixed(1) %></strong>
+            <span class="reviews">(<%= gig.reviews %> reviews)</span>
+          </p>
+        </div>
+      </div>
+
+      <section class="gig-description">
+        <h2>About this service</h2>
+        <p>
+          This is a sample description for the prototype. In a full version, Saarthis would
+          describe exactly what they provide, their process, and what the client needs to share.
+        </p>
+        <ul>
+          <li>Clear deliverables and expectations.</li>
+          <li>Transparent token pricing based on effort and skill tier.</li>
+          <li>Communication and revisions handled inside SkillSaarthi.</li>
+        </ul>
+      </section>
+
+      <section class="gig-token-explainer">
+        <h2>How the token price is calculated</h2>
+        <div class="token-breakdown">
+          <div>
+            <p><strong>Base rate:</strong> 10 ST / hour (example)</p>
+            <p><strong>Skill tier multiplier:</strong> 1.0 for Basic, 1.2 for Intermediate, 1.5 for Advanced</p>
+            <p><strong>Estimated effort:</strong> around 3 - 4 hours</p>
+          </div>
+          <div class="token-total">
+            <p>Estimated total: <span class="token-icon">ST</span> <span><%= gig.tokens %></span></p>
+            <p class="token-note">For this prototype, the value is fixed in mock data.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <aside class="gig-sidebar">
+      <div class="card pricing-card">
+        <p class="pricing-label">Starting from</p>
+        <p class="pricing-value">
+          <span class="token-icon">ST</span>
+          <span><%= gig.tokens %></span>
+        </p>
+        <p class="pricing-meta"><%= gig.eta %> delivery</p>
+        <button class="btn btn-primary btn-full">Request with tokens</button>
+        <button class="btn btn-ghost btn-full">Message Saarthi</button>
+      </div>
+
+      <div class="card small-card">
+        <h3>What you get</h3>
+        <ul>
+          <li>Work delivered on time for agreed tokens.</li>
+          <li>Protected by SkillSaarthi's rating and review system.</li>
+          <li>Ability to spend your tokens on other services later.</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+<section class="section section-light">
+  <div class="container auth-container">
+    <div class="card auth-card">
+      <h1>Join SkillSaarthi</h1>
+      <p class="muted">Create an account, earn tokens with your skills, and spend them when you need help.</p>
+
+      <% if (error) { %>
+        <div class="auth-error"><%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/register" class="auth-form">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password" required />
+        </label>
+        <label>
+          <span>Confirm password</span>
+          <input type="password" name="confirmPassword" required />
+        </label>
+        <button class="btn btn-primary btn-full" type="submit">Create account</button>
+      </form>
+
+      <p class="auth-switch">
+        Already have an account? <a href="/login">Log in</a>
+      </p>
+    </div>
+  </div>
+</section>

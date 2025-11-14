@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title || 'SkillSaarthi' %></title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="page <%= pageClass || '' %>" data-logged-in="<%= currentUser ? 'true' : 'false' %>">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo">Skill<span>सारथी</span></a>
+      <nav class="main-nav">
+        <a href="/explore">Browse Skills</a>
+        <a href="/#how-it-works">How It Works</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/profile">Profile</a>
+      </nav>
+      <div class="header-actions">
+        <div class="wallet" title="Your Saarthi Tokens">
+          <span class="token-icon">ST</span>
+          <span class="wallet-balance"><%= typeof walletBalance !== 'undefined' ? walletBalance : 120 %></span>
+        </div>
+        <button type="button" class="btn btn-icon theme-toggle" aria-label="Toggle theme">
+          <span class="theme-toggle-text">Dark</span>
+        </button>
+        <% if (currentUser) { %>
+          <span class="header-user">Hi, <strong><%= currentUser.name %></strong></span>
+          <form action="/logout" method="POST" class="header-logout-form">
+            <button class="btn btn-ghost" type="submit">Log out</button>
+          </form>
+        <% } else { %>
+          <a href="/login" class="btn btn-ghost">Sign In</a>
+          <a href="/register" class="btn btn-primary">Join</a>
+        <% } %>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <%- body %>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <%= new Date().getFullYear() %> SkillSaarthi. Prototype for academic use.</p>
+      <p>Trade skills, not money.</p>
+    </div>
+  </footer>
+  <script src="/js/auth.js"></script>
+</body>
+</html>
