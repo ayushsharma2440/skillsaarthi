@@ -1,0 +1,126 @@
+<section class="workspace-container">
+  <header class="workspace-header">
+    <div class="container workspace-header-inner">
+      <div class="workspace-header-info">
+        <div class="workspace-nav-links">
+          <a href="/dashboard" class="btn btn-ghost btn-small">← Dashboard</a>
+          <a href="/profile" class="btn btn-ghost btn-small">Profile</a>
+          <span class="nav-separator">|</span>
+          <span class="muted">Workspace</span>
+        </div>
+        <div>
+          <h1><%= requestTitle %></h1>
+          <p class="muted">Working with <strong><%= applicantName %></strong></p>
+        </div>
+      </div>
+      <div class="workspace-header-actions">
+        <div class="workspace-status">
+          <span class="status-indicator status-active"></span>
+          <span>Active session</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="workspace-main">
+    <div class="container workspace-layout">
+      <!-- Video Call Section -->
+      <div class="workspace-video-section">
+        <div class="video-container">
+          <div class="video-placeholder video-main">
+            <div class="video-overlay">
+              <div class="video-info">
+                <div class="avatar-circle avatar-large">
+                  <span><%= applicantName.charAt(0).toUpperCase() %></span>
+                </div>
+                <p><strong><%= applicantName %></strong></p>
+                <p class="muted">Video call</p>
+              </div>
+            </div>
+            <div class="video-controls-overlay">
+              <button class="btn btn-icon btn-video-control" data-video-toggle title="Toggle video">
+                <span>📹</span>
+              </button>
+              <button class="btn btn-icon btn-video-control" data-audio-toggle title="Toggle audio">
+                <span>🎤</span>
+              </button>
+            </div>
+          </div>
+          <div class="video-placeholder video-self">
+            <div class="video-overlay">
+              <div class="video-info">
+                <div class="avatar-circle avatar-small">
+                  <span><%= (currentUser && currentUser.name) ? currentUser.name.charAt(0).toUpperCase() : 'Y' %></span>
+                </div>
+                <p class="muted">You</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Controls -->
+        <div class="workspace-controls">
+          <button class="btn btn-icon btn-control" data-video-toggle title="Toggle video">
+            <span>📹</span>
+            <span class="control-label">Video</span>
+          </button>
+          <button class="btn btn-icon btn-control" data-audio-toggle title="Toggle audio">
+            <span>🎤</span>
+            <span class="control-label">Audio</span>
+          </button>
+          <button class="btn btn-icon btn-control btn-control-primary" data-screen-share title="Share screen">
+            <span>🖥️</span>
+            <span class="control-label">Share</span>
+          </button>
+          <button class="btn btn-icon btn-control btn-control-danger" data-end-call title="End call">
+            <span>📞</span>
+            <span class="control-label">End</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Chat Section -->
+      <div class="workspace-chat-section">
+        <div class="chat-header">
+          <h2>Messages</h2>
+          <button class="btn btn-ghost btn-small" data-chat-toggle>Minimize</button>
+        </div>
+        <div class="chat-messages" data-chat-messages>
+          <div class="chat-message chat-message-bot">
+            <div class="chat-message-content">
+              <p>Session started. You can now collaborate with <strong><%= applicantName %></strong>.</p>
+            </div>
+            <div class="chat-message-time">Just now</div>
+          </div>
+          <div class="chat-message chat-message-user">
+            <div class="chat-message-content">
+              <p>Hi! Thanks for approving my application. I'm ready to start working on the logo design.</p>
+            </div>
+            <div class="chat-message-time">Just now</div>
+          </div>
+        </div>
+        <form class="chat-form" data-chat-form>
+          <input type="text" placeholder="Type a message..." autocomplete="off" />
+          <button type="submit" class="btn btn-primary btn-small">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen Share Modal -->
+  <div class="screen-share-modal hidden" data-screen-share-modal>
+    <div class="screen-share-content">
+      <h2>Share your screen</h2>
+      <p class="muted">Select what you want to share</p>
+      <div class="screen-share-options">
+        <button class="btn btn-secondary" data-share-option="entire-screen">Entire Screen</button>
+        <button class="btn btn-secondary" data-share-option="window">Application Window</button>
+        <button class="btn btn-secondary" data-share-option="browser-tab">Browser Tab</button>
+      </div>
+      <div class="screen-share-actions">
+        <button class="btn btn-ghost" data-cancel-share>Cancel</button>
+      </div>
+    </div>
+  </div>
+</section>
+

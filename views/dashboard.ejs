@@ -41,18 +41,22 @@
         <p class="muted">Prototype snapshot of how your client activity can look.</p>
         <ul class="list-items">
           <li>
-            <strong>Logo redesign for college club</strong>
-            <span class="tag tag-status">In progress</span>
-            <span class="tokens">
-              <span class="token-icon">ST</span> 30
-            </span>
+            <a href="/workspace/req-1/app-1?applicantName=Kunal%20Dhull&requestTitle=Logo%20redesign%20for%20college%20club" class="dashboard-item-link">
+              <strong>Logo redesign for college club</strong>
+              <span class="tag tag-status">In progress</span>
+              <span class="tokens">
+                <span class="token-icon">ST</span> 30
+              </span>
+            </a>
           </li>
           <li>
-            <strong>Resume review and mock interview</strong>
-            <span class="tag tag-status tag-success">Completed</span>
-            <span class="tokens">
-              <span class="token-icon">ST</span> 45
-            </span>
+            <div>
+              <strong>Resume review and mock interview</strong>
+              <span class="tag tag-status tag-success">Completed</span>
+              <span class="tokens">
+                <span class="token-icon">ST</span> 45
+              </span>
+            </div>
           </li>
         </ul>
         <a href="/requests/new" class="btn btn-secondary btn-full">Post a new request</a>
@@ -63,40 +67,51 @@
         <p class="muted">Shows how you earn Saarthi Tokens by helping others.</p>
         <ul class="list-items">
           <li>
-            <strong>Build a single-page portfolio</strong>
-            <span class="tag tag-status">Due in 2 days</span>
-            <span class="tokens">
-              <span class="token-icon">ST</span> 60
-            </span>
+            <a href="/workspace/req-2/app-2?applicantName=<%= (currentUser && currentUser.name) || 'You' %>&requestTitle=Build%20a%20single-page%20portfolio" class="dashboard-item-link">
+              <strong>Build a single-page portfolio</strong>
+              <span class="tag tag-status">Due in 2 days</span>
+              <span class="tokens">
+                <span class="token-icon">ST</span> 60
+              </span>
+            </a>
           </li>
           <li>
-            <strong>One hour DSA tutoring session</strong>
-            <span class="tag tag-status tag-success">Completed</span>
-            <span class="tokens">
-              <span class="token-icon">ST</span> 20
-            </span>
+            <div>
+              <strong>One hour DSA tutoring session</strong>
+              <span class="tag tag-status tag-success">Completed</span>
+              <span class="tokens">
+                <span class="token-icon">ST</span> 20
+              </span>
+            </div>
           </li>
         </ul>
         <a href="/services/new" class="btn btn-secondary btn-full">Publish a new service</a>
       </section>
 
       <section class="card dashboard-column">
-        <h2>Token wallet activity</h2>
-        <p class="muted">Recent prototype transactions (static for demo).</p>
+        <h2>Active Workspaces</h2>
+        <p class="muted">Your ongoing collaborations with Saarthis.</p>
         <ul class="list-items list-compact">
           <li>
-            <span>+60 ST &middot; Portfolio website</span>
-            <span class="muted">Earned</span>
+            <a href="/workspace/req-1/app-1?applicantName=Kunal%20Dhull&requestTitle=Logo%20redesign%20for%20college%20club" class="workspace-link">
+              <div>
+                <strong>Logo redesign for college club</strong>
+                <span class="muted">with Kunal Dhull</span>
+              </div>
+              <span class="tag tag-status">Active</span>
+            </a>
           </li>
           <li>
-            <span>-30 ST &middot; Logo redesign</span>
-            <span class="muted">Spent</span>
-          </li>
-          <li>
-            <span>+20 ST &middot; DSA tutoring</span>
-            <span class="muted">Earned</span>
+            <a href="/workspace/req-2/app-2?applicantName=<%= (currentUser && currentUser.name) || 'You' %>&requestTitle=Build%20a%20single-page%20portfolio" class="workspace-link">
+              <div>
+                <strong>Build a single-page portfolio</strong>
+                <span class="muted">as Saarthi</span>
+              </div>
+              <span class="tag tag-status">Active</span>
+            </a>
           </li>
         </ul>
+        <a href="/profile" class="btn btn-ghost btn-full">View all in Profile</a>
       </section>
     </div>
   </div>

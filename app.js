@@ -301,6 +301,23 @@ app.get('/profile', (req, res) => {
   });
 });
 
+app.get('/workspace/:requestId/:applicantId', (req, res) => {
+  if (!req.session.user) {
+    return res.redirect('/login');
+  }
+  // Mock data for workspace
+  const applicantName = req.query.applicantName || 'Kunal Dhull';
+  const requestTitle = req.query.requestTitle || 'Logo design for college fest';
+  res.render('workspace', {
+    title: 'Workspace | SkillSaarthi',
+    pageClass: 'page-workspace',
+    applicantName,
+    requestTitle,
+    requestId: req.params.requestId,
+    applicantId: req.params.applicantId
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`SkillSaarthi running at http://localhost:${PORT}`);
 });
