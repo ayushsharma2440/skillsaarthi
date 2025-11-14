@@ -134,15 +134,55 @@ document.addEventListener('DOMContentLoaded', () => {
   // Profile page: show applicants + approve/deny (frontend only)
   const showApplicantsBtn = document.querySelector('[data-show-applicants]');
   const applicantsList = document.querySelector('.applicants-list');
+  const applicantFilterButtons = document.querySelectorAll('[data-applicant-filter]');
+  const totalEl = document.querySelector('[data-applicants-total]');
+  const approvedEl = document.querySelector('[data-applicants-approved]');
+  const pendingEl = document.querySelector('[data-applicants-pending]');
+  const deniedEl = document.querySelector('[data-applicants-denied]');
 
   if (showApplicantsBtn && applicantsList) {
+    const applicantItems = applicantsList.querySelectorAll('li');
+
+    function recalcApplicantSummary() {
+      let total = 0;
+      let approved = 0;
+      let pending = 0;
+      let denied = 0;
+
+      applicantItems.forEach((item) => {
+        total += 1;
+        const status = item.getAttribute('data-applicant-status') || 'pending';
+        if (status === 'approved') {
+          approved += 1;
+        } else if (status === 'denied') {
+          denied += 1;
+        } else {
+          pending += 1;
+        }
+      });
+
+      if (totalEl) totalEl.textContent = String(total);
+      if (approvedEl) approvedEl.textContent = String(approved);
+      if (pendingEl) pendingEl.textContent = String(pending);
+      if (deniedEl) deniedEl.textContent = String(denied);
+    }
+
+    function applyApplicantFilter(filter) {
+      applicantItems.forEach((item) => {
+        const status = item.getAttribute('data-applicant-status') || 'pending';
+        if (filter === 'all' || filter === status) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
     showApplicantsBtn.addEventListener('click', () => {
       const isHidden = applicantsList.classList.contains('hidden');
       applicantsList.classList.toggle('hidden');
       showApplicantsBtn.textContent = isHidden ? 'Hide applicants' : 'View 4 applicants';
     });
-
-    const applicantItems = applicantsList.querySelectorAll('li');
 
     applicantItems.forEach((item) => {
       const statusEl = item.querySelector('.applicant-status');
@@ -153,6 +193,14 @@ document.addEventListener('DOMContentLoaded', () => {
         approveBtn.addEventListener('click', () => {
           statusEl.textContent = 'Approved';
           statusEl.classList.add('tag-success');
+          item.setAttribute('data-applicant-status', 'approved');
+          recalcApplicantSummary();
+
+          const activeFilterBtn = document.querySelector('[data-applicant-filter].active');
+          if (activeFilterBtn) {
+            const filter = activeFilterBtn.getAttribute('data-applicant-filter') || 'all';
+            applyApplicantFilter(filter);
+          }
         });
       }
 
@@ -160,8 +208,31 @@ document.addEventListener('DOMContentLoaded', () => {
         denyBtn.addEventListener('click', () => {
           statusEl.textContent = 'Denied';
           statusEl.classList.remove('tag-success');
+          item.setAttribute('data-applicant-status', 'denied');
+          recalcApplicantSummary();
+
+          const activeFilterBtn = document.querySelector('[data-applicant-filter].active');
+          if (activeFilterBtn) {
+            const filter = activeFilterBtn.getAttribute('data-applicant-filter') || 'all';
+            applyApplicantFilter(filter);
+          }
         });
       }
     });
+
+    if (applicantFilterButtons.length) {
+      applicantFilterButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-applicant-filter') || 'all';
+
+          applicantFilterButtons.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          applyApplicantFilter(filter);
+        });
+      });
+    }
+
+    recalcApplicantSummary();
   }
 });

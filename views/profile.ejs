@@ -11,29 +11,45 @@
       <section class="card dashboard-column">
         <h2>Your request</h2>
         <p><strong>Logo design for college fest</strong></p>
-        <div class="request-preview-image">
-          <img
-            src="https://images.pexels.com/photos/1809644/pexels-photo-1809644.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="Logo design concept preview"
-          />
-        </div>
         <p class="muted">Category: Design &amp; Creative &middot; Budget: <span class="token-icon">ST</span> 25</p>
         <p class="muted">Deadline: 2 days &middot; You will approve one Saarthi.</p>
 
+        <div class="profile-request-meta">
+          <div class="profile-stat">
+            <span class="profile-stat-label">Total applicants</span>
+            <span class="profile-stat-value" data-applicants-total>4</span>
+          </div>
+          <div class="profile-stat">
+            <span class="profile-stat-label">Approved</span>
+            <span class="profile-stat-value" data-applicants-approved>0</span>
+          </div>
+          <div class="profile-stat">
+            <span class="profile-stat-label">Pending</span>
+            <span class="profile-stat-value" data-applicants-pending>4</span>
+          </div>
+          <div class="profile-stat">
+            <span class="profile-stat-label">Denied</span>
+            <span class="profile-stat-value" data-applicants-denied>0</span>
+          </div>
+        </div>
+
         <button class="btn btn-secondary" type="button" data-show-applicants>View 4 applicants</button>
 
+        <div class="profile-filters">
+          <span class="muted">Filter applicants</span>
+          <div class="toggle-group">
+            <button type="button" class="btn btn-toggle active" data-applicant-filter="all">All</button>
+            <button type="button" class="btn btn-toggle" data-applicant-filter="pending">Pending</button>
+            <button type="button" class="btn btn-toggle" data-applicant-filter="approved">Approved</button>
+            <button type="button" class="btn btn-toggle" data-applicant-filter="denied">Denied</button>
+          </div>
+        </div>
+
         <ul class="list-items applicants-list hidden">
-          <li>
-            <div class="applicant-info">
-              <img
-                class="applicant-avatar"
-                src="https://images.pexels.com/photos/1181519/pexels-photo-1181519.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=2"
-                alt="Kunal Dhull avatar"
-              />
-              <div>
-                <strong>Kunal Dhull</strong>
-                <div class="muted">4.9 rating &middot; 32 jobs</div>
-              </div>
+          <li data-applicant-status="pending">
+            <div>
+              <strong>Kunal Dhull</strong>
+              <div class="muted">4.9 rating &middot; 32 jobs</div>
             </div>
             <div>
               <span class="tokens">
@@ -45,17 +61,10 @@
               <button class="btn btn-ghost" type="button" data-deny>Deny</button>
             </div>
           </li>
-          <li>
-            <div class="applicant-info">
-              <img
-                class="applicant-avatar"
-                src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=2"
-                alt="Arjun Mehta avatar"
-              />
-              <div>
-                <strong>Arjun Mehta</strong>
-                <div class="muted">4.7 rating &middot; 18 jobs</div>
-              </div>
+          <li data-applicant-status="pending">
+            <div>
+              <strong>Arjun Mehta</strong>
+              <div class="muted">4.7 rating &middot; 18 jobs</div>
             </div>
             <div>
               <span class="tokens">
@@ -67,17 +76,10 @@
               <button class="btn btn-ghost" type="button" data-deny>Deny</button>
             </div>
           </li>
-          <li>
-            <div class="applicant-info">
-              <img
-                class="applicant-avatar"
-                src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=2"
-                alt="Pareeneta Neel avatar"
-              />
-              <div>
-                <strong>Pareeneta Neel</strong>
-                <div class="muted">5.0 rating &middot; 40 jobs</div>
-              </div>
+          <li data-applicant-status="pending">
+            <div>
+              <strong>Pareeneta Neel</strong>
+              <div class="muted">5.0 rating &middot; 40 jobs</div>
             </div>
             <div>
               <span class="tokens">
@@ -89,17 +91,10 @@
               <button class="btn btn-ghost" type="button" data-deny>Deny</button>
             </div>
           </li>
-          <li>
-            <div class="applicant-info">
-              <img
-                class="applicant-avatar"
-                src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=2"
-                alt="Ravi Patel avatar"
-              />
-              <div>
-                <strong>Ravi Patel</strong>
-                <div class="muted">4.5 rating &middot; 12 jobs</div>
-              </div>
+          <li data-applicant-status="pending">
+            <div>
+              <strong>Ravi Patel</strong>
+              <div class="muted">4.5 rating &middot; 12 jobs</div>
             </div>
             <div>
               <span class="tokens">

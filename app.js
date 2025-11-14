@@ -11,7 +11,7 @@ const User = require('./models/User');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/skillsaarthi';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://ayushsharma2440_db_user:Ayush44@cluster0.hunv2k2.mongodb.net/';
 
 // MongoDB connection
 mongoose
